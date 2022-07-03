@@ -172,6 +172,5 @@ public class Main {
         finally {
             sortStudents();
         }
-        }
-
+    }
 }
