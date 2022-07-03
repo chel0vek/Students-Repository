@@ -10,12 +10,20 @@ public class Main {
         try {
             System.out.println("Выберите действие");
             System.out.println("""
-                    1. Добавить ученика
+                    1. Добавить студента
+                    2. Удалить студента
+                    3. Показать список всех студентов
                     """);
             Scanner input = new Scanner(System.in);
             int choice = input.nextInt();
             if (choice == 1) {
                 addStudentM();
+            }
+            if (choice == 2) {
+                removeStudentM();
+            }
+            if (choice == 3) {
+                showAllStudents();
             }
         }
         catch (Exception e) {
@@ -40,6 +48,18 @@ public class Main {
         if (check) {
             System.out.println("Студент успешно добавлен");
         }
-
+    }
+    public static void removeStudentM() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Введите номер студента");
+        int id = input.nextInt();
+        var check = studentStorage.removeStudent(id);
+        if (check) {
+            System.out.println("Студент успешно удален");
+        }
+    }
+    public static void showAllStudents() {
+        System.out.println("Список всех студентов");
+        studentStorage.showAllStudents();
     }
 }

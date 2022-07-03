@@ -6,7 +6,13 @@ public class StudentStorage {
         students.add(student);
         return true;
     }
-    public static void removeStudent(int id) {
+    public boolean removeStudent(int id) {
         students.remove(id);
+        return true;
+    }
+    public void showAllStudents() {
+        for (Student list : students) {
+            System.out.println(list);
+        }
     }
 }
