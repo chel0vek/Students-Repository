@@ -43,7 +43,7 @@ public class Main {
     }
     public static void addStudentM() {
         System.out.println("Введите имя");
-        String name = input.nextLine();
+        String name = input.next();
         System.out.println("Введите возраст");
         int age = input.nextInt();
         System.out.println("Введите группу");
@@ -122,32 +122,47 @@ public class Main {
         }
     }
     public static void sortStudents() {
-        System.out.println("Выберите параметр для сортировки");
-        System.out.println("""
+        try {
+            System.out.println("Выберите параметр для сортировки");
+            System.out.println("""
                 1. Возраст
                 2. Средний балл
                 3. Группа
+                4. Назад
                 """);
-        int choice = input.nextInt();
-        if (choice == 1) {
-            System.out.println("""
+            int choice = input.nextInt();
+            if (choice == 1) {
+                System.out.println("""
                     1. По убыванию
                     2. По возрастанию
                     """);
-            int param = input.nextInt();
-            if (param == 1) {
+                int param1 = input.nextInt();
+                var students = studentStorage.searchStudentsByAgeBubble(param1);
+                for (Student list : students) {
+                    System.out.println(list);
+                }
+            } else if (choice == 2) {
+                System.out.println("""
+                    1. По убыванию
+                    2. По возрастанию
+                    """);
 
+            } else if (choice == 3) {
+                System.out.println("""
+                    1. По убыванию
+                    2. По возрастанию
+                    """);
             }
-        } else if (choice == 2) {
-            System.out.println("""
-                    1. По убыванию
-                    2. По возрастанию
-                    """);
-        } else if (choice == 3) {
-            System.out.println("""
-                    1. По убыванию
-                    2. По возрастанию
-                    """);
+            else {
+                menu();
+            }
         }
-    }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        finally {
+            sortStudents();
+        }
+        }
+
 }
