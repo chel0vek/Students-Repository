@@ -96,4 +96,70 @@ public class StudentStorage {
         }
         return studentsCopy;
     }
+    public List<Student> searchStudentsByAvgBubble(int param) {
+        List<Student> studentsCopy = new ArrayList<>(List.copyOf(students));
+        if (param == 1) {
+            boolean isSorted = false;
+            while(!isSorted) {
+                isSorted = true;
+                for (int i = 0; i < studentsCopy.size() - 1; i++) {
+                    Student current = studentsCopy.get(i);
+                    Student next = studentsCopy.get(i + 1);
+                    if (current != null && next != null && current.getAvgMark() < next.getAvgMark()) {
+                        studentsCopy.set(i, next);
+                        studentsCopy.set(i + 1, current);
+                        isSorted = false;
+                    }
+                }
+            }
+        } else if (param == 2) {
+            boolean isSorted = false;
+            while (!isSorted) {
+                isSorted = true;
+                for (int i = 0; i < studentsCopy.size() - 1; i++) {
+                    Student current = studentsCopy.get(i);
+                    Student next = studentsCopy.get(i + 1);
+                    if (current != null && next != null && current.getAvgMark() > next.getAvgMark()) {
+                        studentsCopy.set(i, next);
+                        studentsCopy.set(i + 1, current);
+                        isSorted = false;
+                    }
+                }
+            }
+        }
+        return studentsCopy;
+    }
+    public List<Student> searchStudentsByGroupBubble(int param) {
+        List<Student> studentsCopy = new ArrayList<>(List.copyOf(students));
+        if (param == 1) {
+            boolean isSorted = false;
+            while(!isSorted) {
+                isSorted = true;
+                for (int i = 0; i < studentsCopy.size() - 1; i++) {
+                    Student current = studentsCopy.get(i);
+                    Student next = studentsCopy.get(i + 1);
+                    if (current != null && next != null && current.getGroup() < next.getGroup()) {
+                        studentsCopy.set(i, next);
+                        studentsCopy.set(i + 1, current);
+                        isSorted = false;
+                    }
+                }
+            }
+        } else if (param == 2) {
+            boolean isSorted = false;
+            while (!isSorted) {
+                isSorted = true;
+                for (int i = 0; i < studentsCopy.size() - 1; i++) {
+                    Student current = studentsCopy.get(i);
+                    Student next = studentsCopy.get(i + 1);
+                    if (current != null && next != null && current.getGroup() > next.getGroup()) {
+                        studentsCopy.set(i, next);
+                        studentsCopy.set(i + 1, current);
+                        isSorted = false;
+                    }
+                }
+            }
+        }
+        return studentsCopy;
+    }
 }

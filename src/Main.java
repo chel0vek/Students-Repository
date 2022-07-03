@@ -146,12 +146,21 @@ public class Main {
                     1. По убыванию
                     2. По возрастанию
                     """);
-
+                int param2 = input.nextInt();
+                var students = studentStorage.searchStudentsByAvgBubble(param2);
+                for (Student list : students) {
+                    System.out.println(list);
+                }
             } else if (choice == 3) {
                 System.out.println("""
                     1. По убыванию
                     2. По возрастанию
                     """);
+                int param3 = input.nextInt();
+                var students = studentStorage.searchStudentsByGroupBubble(param3);
+                for (Student list : students) {
+                    System.out.println(list);
+                }
             }
             else {
                 menu();
