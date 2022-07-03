@@ -13,18 +13,18 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "title='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 ", group=" + group +
                 ", avgMark=" + avgMark +
                 '}';
     }
 
-    public String getTitle() {
+    public String getName() {
         return name;
     }
 
-    public void setTitle(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
